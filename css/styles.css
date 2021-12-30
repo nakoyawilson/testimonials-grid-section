@@ -1,9 +1,47 @@
+@import url("https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&display=swap");
+
+:root {
+  --violet: hsl(263, 55%, 52%);
+  --dark-grayish-blue: hsl(217, 19%, 35%);
+  --blackish-blue: hsl(219, 29%, 14%);
+  --white: hsl(0, 0%, 100%);
+  --gray: hsl(0, 0%, 81%);
+  --light-grayish-blue: hsl(210, 46%, 95%);
+}
+
+/* CSS Reset */
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: grid;
+  grid-template-columns: auto;
+  justify-content: center;
+  align-content: center;
+  min-height: 100vh;
+  background-color: var(--light-grayish-blue);
+  font-family: "Barlow Semi Condensed", sans-serif;
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--white);
+  line-height: 1.5;
+}
+
 /* Testimonials Section */
+main {
+  margin: auto 0;
+}
 
 .container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 2rem;
+  gap: 1.75rem;
+  width: 70rem;
 }
 
 .two-columns {
@@ -15,11 +53,112 @@
   grid-column: 4 / 5;
 }
 
+.card {
+  border-radius: 10px;
+  padding: 2rem;
+}
+
+.violet-card {
+  background-color: var(--violet);
+  background-image: url(../images/bg-pattern-quotation.svg);
+  background-repeat: no-repeat;
+  background-position: top right 5.75rem;
+}
+
+.white-card {
+  background-color: var(--white);
+  color: var(--dark-grayish-blue);
+  box-shadow: 0.25rem 0.5rem 2rem var(--gray);
+}
+
+.blackish-blue-card {
+  background-color: var(--blackish-blue);
+}
+
+.grayish-blue-card {
+  background-color: var(--dark-grayish-blue);
+}
+
+.profile-photo {
+  border-radius: 50%;
+  width: 30px;
+  height: auto;
+}
+
+.light-border {
+  border: 2px solid hsla(0, 0%, 100%, 0.5);
+}
+
+.dark-border {
+  border: 2px solid var(--violet);
+}
+
+.user {
+  display: grid;
+  grid-template-columns: auto auto 1fr;
+  gap: 0.75rem;
+}
+
+.verified-graduate {
+  opacity: 0.5;
+  font-size: 0.7rem;
+}
+
+.review {
+  opacity: 0.7;
+}
+
+.highlight {
+  font-size: 1.25rem;
+  margin: 0.5rem 0;
+}
+
 /* Footer Section */
 .attribution {
   font-size: 11px;
   text-align: center;
+  color: var(--blackish-blue);
 }
+
 .attribution a {
-  color: hsl(228, 45%, 44%);
+  color: var(--dark-grayish-blue);
+}
+
+.attribution a:hover {
+  color: var(--violet);
+  text-decoration: none;
+}
+
+/* Media Queries */
+@media screen and (max-width: 1200px) {
+  .container {
+    grid-template-columns: repeat(2, 1fr);
+    width: 90%;
+  }
+
+  .two-rows {
+    grid-column: span 2;
+    grid-row: 4 / 5;
+  }
+}
+
+@media screen and (max-width: 600px) {
+  .container {
+    grid-template-columns: auto;
+    grid-template-rows: repeat(5, auto);
+  }
+
+  .two-columns,
+  .two-rows,
+  .one-column {
+    grid-column: span 1;
+  }
+
+  .two-rows {
+    grid-row: 5 / 6;
+  }
+
+  .violet-card {
+    background-position: top right 2rem;
+  }
 }
